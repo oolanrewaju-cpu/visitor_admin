@@ -4,15 +4,15 @@ namespace visitor_admin.Repositories.Interfaces
 {
     public interface IStaffRepository
     {
-        Task<IEnumerable<User>> GetAllStaffAsync(string name, string searchQuery, int pageNumber, int pageSize);
+        Task<IEnumerable<Staff>> GetAllStaffAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
 
-        Task<User?> GetStaffByIdAsync(int id);
+        Task<Staff?> GetStaffByIdAsync(int id);
 
-        Task RegisterUser(User user);
+        Task RegisterUser(Staff user);
 
-        Task UpdateUser(User user);
+        Task UpdateUser(Staff user);
 
-        void DeleteUser(User user);
+        void DeleteUser(Staff user);
 
         // Dapper has no need for saveChangesAsync
     }

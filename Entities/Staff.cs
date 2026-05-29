@@ -2,20 +2,19 @@
 
 namespace visitor_admin.Entities
 {
-    public class User
+    public class Staff
     {
-        public int UserId { get; set; }
+        public int UserID { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Firstname { get; set; } = string.Empty;
         public string Surname { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string Department { get; set; } = string.Empty;
         public int DepartmentID { get; set; }
-        [ForeignKey("DepartmentID")]
-        public Department Department { get; set; } = null!;
         public string Password { get; set; } = string.Empty;
+        public int StatusID { get; set; }
         public int RoleID { get; set; }
-        [ForeignKey("RoleID")]
-        public RequestRole RequestRole { get; set; } = null!;
+        public int RequestRoleID { get; set; }
         public DateTime LastModifiedBy { get; set; }
     }
 }
