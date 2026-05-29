@@ -1,5 +1,7 @@
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Serilog;
 using Serilog.Events;
+using visitor_admin.Repositories.Implementations;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -15,6 +17,7 @@ try {
     builder.Host.UseSerilog();
     // Add services to the container.
 
+    builder.Services.AddScoped<StaffRepository>();
     builder.Services.AddControllers();
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddEndpointsApiExplorer();
