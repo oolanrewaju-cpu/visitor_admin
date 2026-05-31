@@ -12,7 +12,7 @@ namespace visitor_admin.Repositories.Interfaces
 
         Task UpdateUser(Staff user);
 
-        void DeleteUser(Staff user);
+        Task DeleteUserAsync(int id);
 
         // Dapper has no need for saveChangesAsync
     }

@@ -19,6 +19,7 @@ try {
     // Add services to the container.
 
     builder.Services.AddScoped<IStaffRepository, StaffRepository>();
+    builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly));
     builder.Services.AddControllers();
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddEndpointsApiExplorer();

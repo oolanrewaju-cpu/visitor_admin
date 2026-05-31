@@ -12,23 +12,42 @@ namespace visitor_admin.Repositories.Implementations
         {
             _db = CreateConnection();
         }
-        // This method deletes a user from the database based on their UserId.
-        public void DeleteUser(Staff user)
+        public async Task DeleteUserAsync(int id)
         {
-            _db.ExecuteAsync("DELETE FROM tblStaffList WHERE UserId = @UserId", new { UserId = user.UserID });
+            await _db.ExecuteAsync("DELETE FROM tblStaffList WHERE UserID = @UserID", new { UserID = id });
         }
         // This method retrieves all staff members from the database, allowing for filtering by name and a search query that can match the first name, surname, department, or email.
         public async Task<IEnumerable<Staff>> GetAllStaffAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
-            var offset = (pageNumber - 1) * pageSize; // Calculate the offset for pagination
-            return await _db.QueryAsync<Staff>("SELECT * FROM tblStaffList WHERE (Firstname LIKE @Name OR Surname LIKE @Name) AND (Firstname LIKE @SearchQuery OR Surname LIKE @SearchQuery or Department LIKE @SearchQuery or Email LIKE @SearchQuery) LIMIT @PageSize OFFSET @Offset",
-                new
-                {
-                    Name = $"%{name}%",
-                    SearchQuery = $"%{searchQuery}%",
-                    PageSize = pageSize,
-                    Offset = offset 
-                });
+            var offset = (pageNumber - 1) * pageSize;
+
+            var sql = @"
+                SELECT * FROM tblStaffList
+                WHERE 
+                    (
+                        @Name IS NULL 
+                        OR Firstname LIKE @Name 
+                        OR Surname LIKE @Name
+                    )
+                    AND
+                    (
+                        @SearchQuery IS NULL
+                        OR Firstname LIKE @SearchQuery 
+                        OR Surname LIKE @SearchQuery 
+                        OR Department LIKE @SearchQuery 
+                        OR Email LIKE @SearchQuery
+                    )
+                ORDER BY Surname
+                OFFSET @Offset ROWS
+                FETCH NEXT @PageSize ROWS ONLY";
+
+            return await _db.QueryAsync<Staff>(sql, new
+            {
+                Name = string.IsNullOrEmpty(name) ? null : $"%{name}%",
+                SearchQuery = string.IsNullOrEmpty(searchQuery) ? null : $"%{searchQuery}%",
+                PageSize = pageSize,
+                Offset = offset
+            });
         }
         // This method retrieves a staff member by their ID from the database.
         public async Task<Staff?> GetStaffByIdAsync(int id)
