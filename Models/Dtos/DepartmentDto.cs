@@ -1,6 +1,6 @@
-﻿namespace visitor_admin.Entities
+namespace visitor_admin.Models.Dtos
 {
-    public class Department
+    public class DepartmentDto
     {
         public int DepartmentID { get; set; }
         public string DepartmentCode { get; set; } = string.Empty;

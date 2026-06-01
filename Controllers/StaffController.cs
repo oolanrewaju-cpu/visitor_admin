@@ -74,7 +74,7 @@ namespace visitor_admin.Controllers
             {
                 _logger.LogInformation("Creating a new staff member with Username: {Username}", createStaffDto.Username);
 
-                var staffEntity = _mapper.Map<Entities.Staff>(createStaffDto);
+                var staffEntity = _mapper.Map<Staff>(createStaffDto);
                 await _staffRepository.RegisterUser(staffEntity);
 
                 var staffDto = _mapper.Map<StaffDto>(staffEntity);

@@ -1,0 +1,22 @@
+2026-06-01 10:18:22.238 +01:00 [INF] Starting up the service...
+2026-06-01 10:18:40.536 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-01 10:18:40.573 +01:00 [INF] Retrieving all request roles...
+2026-06-01 10:18:45.045 +01:00 [INF] Retrieved 3 request roles.
+2026-06-01 10:19:00.732 +01:00 [INF] Retrieving request role with ID: 2
+2026-06-01 10:20:57.382 +01:00 [INF] Starting up the service...
+2026-06-01 10:23:25.313 +01:00 [INF] Starting up the service...
+2026-06-01 10:51:13.967 +01:00 [INF] Starting up the service...
+2026-06-01 10:51:31.044 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-01 10:51:31.202 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-01 10:51:33.060 +01:00 [INF] Retrieved 0 departments from the repository.
+2026-06-01 10:52:15.100 +01:00 [INF] Creating a new department with Name: ICT
+2026-06-01 10:53:07.121 +01:00 [INF] Patching department with ID: 0
+2026-06-01 10:53:07.199 +01:00 [WRN] Department with ID: 0 not found for patching.
+2026-06-01 10:53:34.585 +01:00 [INF] Patching department with ID: 1
+2026-06-01 10:53:34.690 +01:00 [INF] Successfully patched department with ID: 1
+2026-06-01 10:53:46.678 +01:00 [INF] Patching department with ID: 1
+2026-06-01 10:53:46.782 +01:00 [INF] Successfully patched department with ID: 1
+2026-06-01 10:56:09.275 +01:00 [INF] Retrieving departments with Name: ict, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-01 10:56:09.367 +01:00 [INF] Retrieved 1 departments from the repository.
+2026-06-01 10:56:16.019 +01:00 [INF] Retrieving departments with Name: no, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-01 10:56:16.043 +01:00 [INF] Retrieved 0 departments from the repository.

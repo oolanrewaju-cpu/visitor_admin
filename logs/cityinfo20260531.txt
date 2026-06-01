@@ -55,3 +55,27 @@ Error Number:102,State:1,Class:15
 2026-05-31 23:20:59.025 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
 2026-05-31 23:21:00.365 +01:00 [INF] Retrieved 0 staff members from the repository.
 2026-05-31 23:35:26.549 +01:00 [INF] Starting up the service...
+2026-05-31 23:36:13.386 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-05-31 23:36:13.546 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-05-31 23:36:14.827 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-05-31 23:37:25.859 +01:00 [INF] Creating a new staff member with Username: Tobi
+2026-05-31 23:37:26.487 +01:00 [ERR] An error occurred while creating a new staff member.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'UserID', table 'visitor.dbo.tblStaffList'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 663
+   at visitor_admin.Repositories.Implementations.StaffRepository.RegisterUser(Staff user) in C:\Users\DELL\Documents\visitor_admin\Repositories\Implementations\StaffRepository.cs:line 59
+   at visitor_admin.Controllers.StaffController.CreateStaff(CreateStaffDto createStaffDto) in C:\Users\DELL\Documents\visitor_admin\Controllers\StaffController.cs:line 78
+ClientConnectionId:b031b76a-6559-439d-a91d-940d78fe4bbd
+Error Number:515,State:2,Class:16
