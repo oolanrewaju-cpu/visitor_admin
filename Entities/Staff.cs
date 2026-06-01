@@ -4,6 +4,7 @@ namespace visitor_admin.Entities
 {
     public class Staff
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserID { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Firstname { get; set; } = string.Empty;

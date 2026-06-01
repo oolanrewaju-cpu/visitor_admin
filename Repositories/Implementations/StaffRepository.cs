@@ -56,13 +56,17 @@ namespace visitor_admin.Repositories.Implementations
         }
         public async Task RegisterUser(Staff user)
         {
-            await _db.ExecuteAsync("INSERT INTO tblStaffList (Username, Firstname, Surname, Email, DepartmentID, Password, RoleID, RequestRoleID, StatusID) VALUES (@Username, @Firstname, @Surname, @Email, @DepartmentID, @Password, @RoleID, @RequestRoleID, @StatusID)",
+            var sql = @"INSERT INTO tblStaffList (Username, Firstname, Surname, Email, Department, DepartmentID, Password, RoleID, RequestRoleID, StatusID)
+                        OUTPUT INSERTED.UserID
+                        VALUES (@Username, @Firstname, @Surname, @Email, @Department, @DepartmentID, @Password, @RoleID, @RequestRoleID, @StatusID)";
+            user.UserID = await _db.ExecuteScalarAsync<int>(sql,
                 new
                 {
                     user.Username,
                     user.Firstname,
                     user.Surname,
                     user.Email,
+                    user.Department,
                     user.DepartmentID,
                     user.Password,
                     user.RoleID,
@@ -83,6 +87,7 @@ namespace visitor_admin.Repositories.Implementations
                     user.Password,
                     user.RoleID,
                     user.RequestRoleID,
+                    user.UserID,
                     user.StatusID,
                 });
         }

@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper": "16.1.1",
           "Dapper": "2.1.79",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.8",
           "Microsoft.AspNetCore.OpenApi": "10.0.8",
           "Microsoft.Data.SqlClient": "7.0.1",
           "Serilog": "4.3.1",
@@ -41,6 +42,17 @@
           "lib/net10.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.1.79.29349"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.8": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.16.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "10.0.8.0",
+            "fileVersion": "10.0.826.23019"
           }
         }
       },
@@ -503,6 +515,13 @@
       "sha512": "sha512-8YijbzgTfmqmQOnVNorYM6K++pxqnW3nJ4aC1sRHzxUA2CcuoJ9gsTem3kgBnPRMc38zZHl4Esb6hAezXIEEuw==",
       "path": "dapper/2.1.79",
       "hashPath": "dapper.2.1.79.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oGnE+X/SN6jdqao9WOkOIfyZ5+a0AtluJWy1Mxndq+kcWG6sx5k6l6tucu8/wJ7o9fHfLgVCzm/c4v/KVgVk6w==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.8",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.10.0.8.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/10.0.0": {
       "type": "package",

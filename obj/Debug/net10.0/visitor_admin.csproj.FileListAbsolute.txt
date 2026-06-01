@@ -128,4 +128,5 @@ C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\runtimes\win-arm64\nativ
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\AutoMapper.dll
+C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

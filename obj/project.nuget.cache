@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FgomdQCppjQ=",
+  "dgSpecHash": "WnfcbSKEpIs=",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\visitor_admin\\visitor_admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.8\\microsoft.aspnetcore.authentication.jwtbearer.10.0.8.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\10.0.0\\microsoft.aspnetcore.jsonpatch.10.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.3.10\\microsoft.aspnetcore.mvc.abstractions.2.3.10.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\10.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.10.0.0.nupkg.sha512",
