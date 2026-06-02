@@ -12,13 +12,17 @@ namespace visitor_admin.Controllers
     {
         private readonly ILogger _logger;
         private readonly IStaffRepository _staffRepository;
+        private readonly IDepartmentRepository _departmentRepository;
+        private readonly IRequestRoleRepository _requestRoleRepository;
         private readonly IMapper _mapper;
         const int maxPageSize = 10;
 
-        public StaffController(ILogger<StaffController> logger, IStaffRepository staffRepository, IMapper mapper)
+        public StaffController(ILogger<StaffController> logger, IStaffRepository staffRepository, IDepartmentRepository departmentRepository, IRequestRoleRepository requestRoleRepository, IMapper mapper)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _staffRepository = staffRepository ?? throw new ArgumentNullException(nameof(staffRepository));
+            _departmentRepository = departmentRepository ?? throw new ArgumentNullException(nameof(departmentRepository));
+            _requestRoleRepository = requestRoleRepository ?? throw new ArgumentNullException(nameof(requestRoleRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -87,32 +91,62 @@ namespace visitor_admin.Controllers
             }
         }
 
-        [HttpPatch("{id}")]
-        public async Task<ActionResult<StaffDto>> PatchStaff(int id, [FromBody] PatchStaffDto patchStaffDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PatchStaff(int id, PatchStaffDto patchStaffDto)
         {
             try
             {
                 _logger.LogInformation("Patching staff member with ID: {Id}", id);
 
+                // Retrieve existing staff entity
                 var staffEntity = await _staffRepository.GetStaffByIdAsync(id);
                 if (staffEntity == null)
                 {
-                    _logger.LogWarning("Staff member with ID: {Id} not found for patching.", id);
+                    _logger.LogWarning("Staff member with ID: {Id} not found.", id);
                     return NotFound();
                 }
 
+                // Map only the patchable fields, ignoring UserID and DepartmentID
                 _mapper.Map(patchStaffDto, staffEntity);
+
+                if (patchStaffDto.Department != null)
+                {
+                    var dept = await _departmentRepository.GetByNameAsync(patchStaffDto.Department);
+                    if (dept == null)
+                    {
+                        _logger.LogWarning("Department '{Department}' not found.", patchStaffDto.Department);
+                        return BadRequest($"Department '{patchStaffDto.Department}' not found.");
+                    }
+                    staffEntity.DepartmentID = dept.DepartmentID;
+                }
+
+                if (patchStaffDto.RequestRoleName != null)
+                {
+                    var role = await _requestRoleRepository.GetByNameAsync(patchStaffDto.RequestRoleName);
+                    if (role == null)
+                    {
+                        _logger.LogWarning("Request role '{RequestRoleName}' not found.", patchStaffDto.RequestRoleName);
+                        return BadRequest($"Request role '{patchStaffDto.RequestRoleName}' not found.");
+                    }
+                    staffEntity.RequestRoleID = role.RequestRoleID;
+                }
+
+                staffEntity.LastModifiedBy = DateTime.UtcNow;
+
+                // Update the staff in the database
                 await _staffRepository.UpdateUser(staffEntity);
 
                 _logger.LogInformation("Successfully patched staff member with ID: {Id}", id);
-                return Ok(_mapper.Map<StaffDto>(staffEntity));
+                return NoContent(); // 204 No Content is appropriate for a successful PUT/PATCH
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while patching staff member with ID: {Id}.", id);
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                                  "An error occurred while processing your request.");
             }
         }
+
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteStaff(int id)

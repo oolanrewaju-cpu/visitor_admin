@@ -76,20 +76,37 @@ namespace visitor_admin.Repositories.Implementations
         }
         public async Task UpdateUser(Staff user)
         {
-            await _db.ExecuteAsync("UPDATE tblStaffList SET Username = @Username, Firstname = @Firstname, Surname = @Surname, Email = @Email, DepartmentID = @DepartmentID, Password = @Password, RoleID = @RoleID, RequestRoleID = @RequestRoleID, StatusID = @StatusID WHERE UserID = @UserID",
-                new
-                {
-                    user.Username,
-                    user.Firstname,
-                    user.Surname,
-                    user.Email,
-                    user.DepartmentID,
-                    user.Password,
-                    user.RoleID,
-                    user.RequestRoleID,
-                    user.UserID,
-                    user.StatusID,
-                });
+            var sql = @"
+        UPDATE tblStaffList
+        SET 
+            Username = @Username,
+            Firstname = @Firstname,
+            Surname = @Surname,
+            Email = @Email,
+            Department = @Department,
+            DepartmentID = @DepartmentID,
+            Password = @Password,
+            RoleID = @RoleID,
+            RequestRoleID = @RequestRoleID,
+            StatusID = @StatusID,
+            LastModifiedBy = @LastModifiedBy
+        WHERE UserID = @UserID"; // Do NOT update UserID
+
+            await _db.ExecuteAsync(sql, new
+            {
+                user.Username,
+                user.Firstname,
+                user.Surname,
+                user.Email,
+                user.Department,
+                user.DepartmentID,
+                user.Password,
+                user.RoleID,
+                user.RequestRoleID,
+                user.StatusID,
+                user.LastModifiedBy,
+                user.UserID // used only in WHERE clause
+            });
         }
     }
 }

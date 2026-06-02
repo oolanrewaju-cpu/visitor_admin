@@ -13,7 +13,6 @@ namespace visitor_admin.Controllers
         private readonly ILogger _logger;
         private readonly IDepartmentRepository _departmentRepository;
         private readonly IMapper _mapper;
-        const int maxPageSize = 10;
 
         public DepartmentsController(ILogger<DepartmentsController> logger, IDepartmentRepository departmentRepository, IMapper mapper)
         {
@@ -23,17 +22,13 @@ namespace visitor_admin.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetAllDepartments(string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetAllDepartments(string? name, string? searchQuery)
         {
             try
             {
-                if (pageSize > maxPageSize)
-                {
-                    pageSize = maxPageSize;
-                }
 
-                _logger.LogInformation("Retrieving departments with Name: {Name}, SearchQuery: {SearchQuery}, PageNumber: {PageNumber}, PageSize: {PageSize}", name, searchQuery, pageNumber, pageSize);
-                var departments = await _departmentRepository.GetAllDepartmentsAsync(name, searchQuery, pageNumber, pageSize);
+                _logger.LogInformation("Retrieving departments with Name: {Name}, SearchQuery: {SearchQuery}", name, searchQuery);
+                var departments = await _departmentRepository.GetAllDepartmentsAsync(name, searchQuery);
                 _logger.LogInformation("Retrieved {Count} departments from the repository.", departments.Count());
                 return Ok(_mapper.Map<IEnumerable<DepartmentDto>>(departments));
             }
@@ -75,6 +70,7 @@ namespace visitor_admin.Controllers
                 _logger.LogInformation("Creating a new department with Name: {DepartmentName}", createDepartmentDto.DepartmentName);
 
                 var departmentEntity = _mapper.Map<Department>(createDepartmentDto);
+                departmentEntity.LastModifiedBy = DateTime.UtcNow;
                 await _departmentRepository.CreateDepartment(departmentEntity);
 
                 var departmentDto = _mapper.Map<DepartmentDto>(departmentEntity);
@@ -102,6 +98,7 @@ namespace visitor_admin.Controllers
                 }
 
                 _mapper.Map(patchDepartmentDto, departmentEntity);
+                departmentEntity.LastModifiedBy = DateTime.UtcNow;
                 await _departmentRepository.UpdateDepartment(departmentEntity);
 
                 _logger.LogInformation("Successfully patched department with ID: {Id}", id);

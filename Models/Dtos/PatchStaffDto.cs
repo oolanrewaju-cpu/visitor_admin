@@ -2,6 +2,7 @@ namespace visitor_admin.Models.Dtos
 {
     public class PatchStaffDto
     {
+        public int UserID { get; set; }
         public string? Username { get; set; }
         public string? Firstname { get; set; }
         public string? Surname { get; set; }
@@ -12,5 +13,6 @@ namespace visitor_admin.Models.Dtos
         public int? StatusID { get; set; }
         public int? RoleID { get; set; }
         public int? RequestRoleID { get; set; }
+        public string? RequestRoleName { get; set; }
     }
 }

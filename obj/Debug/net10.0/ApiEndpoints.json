@@ -173,16 +173,6 @@
         "Name": "searchQuery",
         "Type": "System.String",
         "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -439,7 +429,7 @@
     "ContainingType": "visitor_admin.Controllers.StaffController",
     "Method": "PatchStaff",
     "RelativePath": "api/Staff/{id}",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -454,17 +444,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "visitor_admin.Models.Dtos.StaffDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "visitor_admin.Controllers.StaffController",

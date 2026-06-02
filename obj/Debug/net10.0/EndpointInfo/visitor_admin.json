@@ -315,24 +315,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
           }
         ],
         "responses": {
@@ -767,7 +749,7 @@
           }
         }
       },
-      "patch": {
+      "put": {
         "tags": [
           "Staff"
         ],
@@ -803,24 +785,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaffDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaffDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaffDto"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1033,6 +998,10 @@
           "departmentDescription": {
             "type": "string",
             "nullable": true
+          },
+          "lastModifiedBy": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1082,6 +1051,10 @@
       "PatchStaffDto": {
         "type": "object",
         "properties": {
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "username": {
             "type": "string",
             "nullable": true
@@ -1124,6 +1097,10 @@
           "requestRoleID": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "requestRoleName": {
+            "type": "string",
             "nullable": true
           }
         },

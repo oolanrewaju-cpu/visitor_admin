@@ -25,5 +25,12 @@ namespace visitor_admin.Repositories.Implementations
                 "SELECT * FROM tblRequestRoles WHERE RequestRoleID = @RequestRoleID",
                 new { RequestRoleID = id });
         }
+
+        public async Task<RequestRole?> GetByNameAsync(string name)
+        {
+            return await _db.QueryFirstOrDefaultAsync<RequestRole>(
+                "SELECT * FROM tblRequestRoles WHERE RequestRoleName = @RequestRoleName",
+                new { RequestRoleName = name });
+        }
     }
 }

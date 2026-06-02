@@ -186,3 +186,66 @@ Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL
    at visitor_admin.Controllers.StaffController.CreateStaff(CreateStaffDto createStaffDto) in C:\Users\DELL\Documents\visitor_admin\Controllers\StaffController.cs:line 78
 ClientConnectionId:30c052f0-a2c2-49a5-91fd-893cabe45c24
 Error Number:515,State:2,Class:16
+2026-06-01 15:29:30.191 +01:00 [INF] Starting up the service...
+2026-06-01 15:30:05.964 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-01 15:30:06.122 +01:00 [INF] Login attempt for username: admin
+2026-06-01 15:30:06.488 +01:00 [INF] Successful login for username: admin
+2026-06-01 15:31:36.059 +01:00 [INF] Creating a new staff member with Username: tobi
+2026-06-01 15:33:21.163 +01:00 [INF] Retrieving staff member with ID: 2
+2026-06-01 15:33:21.607 +01:00 [WRN] Staff member with ID: 2 not found.
+2026-06-01 15:33:26.977 +01:00 [INF] Retrieving staff member with ID: 1
+2026-06-01 15:33:27.013 +01:00 [WRN] Staff member with ID: 1 not found.
+2026-06-01 15:33:30.059 +01:00 [INF] Retrieving staff member with ID: 1
+2026-06-01 15:33:30.066 +01:00 [WRN] Staff member with ID: 1 not found.
+2026-06-01 15:33:36.643 +01:00 [INF] Retrieving staff member with ID: 3
+2026-06-01 15:33:36.727 +01:00 [WRN] Staff member with ID: 3 not found.
+2026-06-01 15:33:41.514 +01:00 [INF] Retrieving staff member with ID: 4
+2026-06-01 15:33:56.326 +01:00 [INF] Patching staff member with ID: 4
+2026-06-01 15:33:57.318 +01:00 [ERR] An error occurred while patching staff member with ID: 4.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_tblStaffList_tblDepartments". The conflict occurred in database "visitor", table "dbo.tblDepartments", column 'DepartmentID'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 663
+   at visitor_admin.Repositories.Implementations.StaffRepository.UpdateUser(Staff user) in C:\Users\DELL\Documents\visitor_admin\Repositories\Implementations\StaffRepository.cs:line 79
+   at visitor_admin.Controllers.StaffController.PatchStaff(Int32 id, PatchStaffDto patchStaffDto) in C:\Users\DELL\Documents\visitor_admin\Controllers\StaffController.cs:line 105
+ClientConnectionId:d37c4ff3-c0bf-4e06-b347-2091bfb5f07c
+Error Number:547,State:0,Class:16
+2026-06-01 15:35:56.234 +01:00 [INF] Starting up the service...
+2026-06-01 16:44:04.705 +01:00 [INF] Starting up the service...
+2026-06-01 16:55:26.344 +01:00 [INF] Starting up the service...
+2026-06-01 17:06:08.802 +01:00 [INF] Starting up the service...
+2026-06-01 17:13:08.231 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-01 17:13:08.465 +01:00 [INF] Login attempt for username: admin
+2026-06-01 17:13:09.214 +01:00 [INF] Successful login for username: admin
+2026-06-01 17:13:10.805 +01:00 [INF] Retrieving all request roles...
+2026-06-01 17:13:10.856 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-01 17:13:10.856 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-01 17:13:11.118 +01:00 [INF] Retrieved 3 request roles.
+2026-06-01 17:13:11.245 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-01 17:13:11.438 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-01 17:13:11.438 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-01 17:13:11.464 +01:00 [INF] Retrieved 1 departments from the repository.
+2026-06-01 17:13:42.451 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-01 17:13:42.514 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-01 17:13:44.545 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-01 17:13:44.581 +01:00 [INF] Retrieved 10 departments from the repository.
+2026-06-01 17:13:54.220 +01:00 [INF] Retrieving department with ID: 1
+2026-06-01 17:13:56.098 +01:00 [INF] Retrieving all request roles...
+2026-06-01 17:13:56.130 +01:00 [INF] Retrieved 3 request roles.
+2026-06-01 17:14:01.899 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-01 17:14:01.903 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-01 17:14:01.907 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-01 17:14:01.967 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-01 17:14:01.968 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-01 17:14:01.984 +01:00 [INF] Retrieved 1 departments from the repository.

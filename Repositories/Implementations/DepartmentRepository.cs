@@ -13,9 +13,8 @@ namespace visitor_admin.Repositories.Implementations
             _db = CreateConnection();
         }
 
-        public async Task<IEnumerable<Department>> GetAllDepartmentsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
+        public async Task<IEnumerable<Department>> GetAllDepartmentsAsync(string? name, string? searchQuery)
         {
-            var offset = (pageNumber - 1) * pageSize;
             var sql = @"
                 SELECT * FROM tblDepartments
                 WHERE 
@@ -30,15 +29,11 @@ namespace visitor_admin.Repositories.Implementations
                         OR DepartmentCode LIKE @SearchQuery 
                         OR DepartmentDescription LIKE @SearchQuery
                     )
-                ORDER BY DepartmentName
-                OFFSET @Offset ROWS
-                FETCH NEXT @PageSize ROWS ONLY";
+                ORDER BY DepartmentName";
             return await _db.QueryAsync<Department>(sql, new
             {
                 Name = string.IsNullOrEmpty(name) ? null : $"%{name}%",
                 SearchQuery = string.IsNullOrEmpty(searchQuery) ? null : $"%{searchQuery}%",
-                PageSize = pageSize,
-                Offset = offset
             });
         }
 
@@ -52,21 +47,28 @@ namespace visitor_admin.Repositories.Implementations
         public async Task CreateDepartment(Department department)
         {
             await _db.ExecuteAsync(
-                "INSERT INTO tblDepartments (DepartmentCode, DepartmentName, DepartmentDescription) VALUES (@DepartmentCode, @DepartmentName, @DepartmentDescription)",
-                new { department.DepartmentCode, department.DepartmentName, department.DepartmentDescription });
+                "INSERT INTO tblDepartments (DepartmentCode, DepartmentName, DepartmentDescription, LastModifiedBy) VALUES (@DepartmentCode, @DepartmentName, @DepartmentDescription, @LastModifiedBy)",
+                new { department.DepartmentCode, department.DepartmentName, department.DepartmentDescription, department.LastModifiedBy });
         }
 
         public async Task UpdateDepartment(Department department)
         {
             await _db.ExecuteAsync(
-                "UPDATE tblDepartments SET DepartmentCode = @DepartmentCode, DepartmentName = @DepartmentName, DepartmentDescription = @DepartmentDescription WHERE DepartmentID = @DepartmentID",
-                new { department.DepartmentCode, department.DepartmentName, department.DepartmentDescription, department.DepartmentID });
+                "UPDATE tblDepartments SET DepartmentCode = @DepartmentCode, DepartmentName = @DepartmentName, DepartmentDescription = @DepartmentDescription, LastModifiedBy = @LastModifiedBy WHERE DepartmentID = @DepartmentID",
+                new { department.DepartmentCode, department.DepartmentName, department.DepartmentDescription, department.LastModifiedBy, department.DepartmentID });
         }
 
         public async Task DeleteDepartmentAsync(int id)
         {
             await _db.ExecuteAsync("DELETE FROM tblDepartments WHERE DepartmentID = @DepartmentID",
                 new { DepartmentID = id });
+        }
+
+        public async Task<Department?> GetByNameAsync(string name)
+        {
+            return await _db.QueryFirstOrDefaultAsync<Department>(
+                "SELECT * FROM tblDepartments WHERE DepartmentName = @DepartmentName",
+                new { DepartmentName = name });
         }
     }
 }

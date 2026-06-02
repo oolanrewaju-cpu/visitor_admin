@@ -13,7 +13,9 @@ namespace visitor_admin.Profiles
             CreateMap<Staff, CreateStaffDto>();
             CreateMap<UpdateStaffDto, Staff>();
             CreateMap<PatchStaffDto, Staff>()
-                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+                .ForMember(dest => dest.UserID, opt => opt.Ignore())
+                .ForMember(dest => dest.DepartmentID, opt => opt.Ignore());
+        
         }
     }
 }

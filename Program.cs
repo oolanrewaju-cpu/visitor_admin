@@ -90,13 +90,15 @@ try {
     {
         options.AddDefaultPolicy(policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.WithOrigins("http://localhost:3000")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
     });
 
     var app = builder.Build();
+    
+    app.UseCors();
 
     using (var scope = app.Services.CreateScope())
     {
@@ -149,7 +151,7 @@ try {
 
     app.UseHttpsRedirection();
 
-    app.UseCors();
+
 
     app.UseAuthentication();
 
