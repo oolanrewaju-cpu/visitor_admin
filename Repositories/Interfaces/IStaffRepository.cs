@@ -14,6 +14,10 @@ namespace visitor_admin.Repositories.Interfaces
 
         Task DeleteUserAsync(int id);
 
-        // Dapper has no need for saveChangesAsync
+        Task<IEnumerable<string>> GetAllUsernamesAsync();
+
+        Task<IEnumerable<string>> GetAllEmailsAsync();
+
+        Task BulkRegisterUsersAsync(IEnumerable<Staff> users);
     }
 }

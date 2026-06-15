@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
+using CsvHelper;
+using CsvHelper.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 using visitor_admin.Entities;
+using visitor_admin.Helpers;
 using visitor_admin.Models.Dtos;
 using visitor_admin.Repositories.Interfaces;
 
@@ -87,6 +91,153 @@ namespace visitor_admin.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while creating a new staff member.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost("bulk-upload")]
+        public async Task<ActionResult<BulkUploadResultDto>> BulkUploadStaff(IFormFile file)
+        {
+            try
+            {
+                if (file == null || file.Length == 0)
+                {
+                    return BadRequest("No file uploaded.");
+                }
+
+                if (!file.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    return BadRequest("Only CSV files are allowed.");
+                }
+
+                _logger.LogInformation("Starting bulk upload from file: {FileName}", file.FileName);
+
+                List<CsvStaffImportDto> csvRecords;
+                try
+                {
+                    using (var reader = new StreamReader(file.OpenReadStream()))
+                    {
+                        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                        {
+                            MissingFieldFound = null,
+                            HeaderValidated = null,
+                            PrepareHeaderForMatch = args => args.Header.Trim().ToLowerInvariant()
+                        };
+                        using var csv = new CsvReader(reader, config);
+                        csv.Context.RegisterClassMap<CsvStaffImportDtoMap>();
+                        csvRecords = csv.GetRecords<CsvStaffImportDto>().ToList();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "CSV parsing failed.");
+                    return BadRequest("Invalid CSV format. Expected columns: Username, Firstname, Surname, Email, Department, StatusID, RoleID, RequestRoleName.");
+                }
+
+                if (csvRecords.Count == 0)
+                {
+                    return BadRequest("CSV file contains no data.");
+                }
+
+                var existingUsernames = new HashSet<string>(await _staffRepository.GetAllUsernamesAsync(), StringComparer.OrdinalIgnoreCase);
+                var existingEmails = new HashSet<string>(await _staffRepository.GetAllEmailsAsync(), StringComparer.OrdinalIgnoreCase);
+                var departments = await _departmentRepository.GetAllDepartmentsAsync(null, null);
+                var departmentLookup = departments.ToDictionary(d => d.DepartmentName, d => d, StringComparer.OrdinalIgnoreCase);
+                var requestRoles = await _requestRoleRepository.GetAllRequestRolesAsync();
+                var requestRoleLookup = requestRoles.ToDictionary(r => r.RequestRoleName, r => r, StringComparer.OrdinalIgnoreCase);
+
+                var defaultPassword = PasswordHelper.Hash("staff@lbs");
+                var validStaff = new List<Staff>();
+                var result = new BulkUploadResultDto { TotalRows = csvRecords.Count };
+                var processedUsernames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                var processedEmails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+                for (int i = 0; i < csvRecords.Count; i++)
+                {
+                    var record = csvRecords[i];
+                    var rowNumber = i + 2;
+                    var errors = new List<string>();
+
+                    if (string.IsNullOrWhiteSpace(record.Username))
+                        errors.Add("Username is required.");
+                    if (string.IsNullOrWhiteSpace(record.Firstname))
+                        errors.Add("Firstname is required.");
+                    if (string.IsNullOrWhiteSpace(record.Surname))
+                        errors.Add("Surname is required.");
+                    if (string.IsNullOrWhiteSpace(record.Email))
+                        errors.Add("Email is required.");
+                    if (string.IsNullOrWhiteSpace(record.Department))
+                        errors.Add("Department is required.");
+                    if (string.IsNullOrWhiteSpace(record.RequestRoleName))
+                        errors.Add("RequestRoleName is required.");
+
+                    if (errors.Count > 0)
+                    {
+                        result.Failed++;
+                        result.Errors.Add(new BulkUploadErrorDto { Row = rowNumber, Message = string.Join(" ", errors) });
+                        continue;
+                    }
+
+                    if (existingUsernames.Contains(record.Username) || processedUsernames.Contains(record.Username))
+                    {
+                        result.Failed++;
+                        result.Errors.Add(new BulkUploadErrorDto { Row = rowNumber, Message = $"Username '{record.Username}' already exists." });
+                        continue;
+                    }
+
+                    if (existingEmails.Contains(record.Email) || processedEmails.Contains(record.Email))
+                    {
+                        result.Failed++;
+                        result.Errors.Add(new BulkUploadErrorDto { Row = rowNumber, Message = $"Email '{record.Email}' already exists." });
+                        continue;
+                    }
+
+                    if (!departmentLookup.TryGetValue(record.Department, out var dept))
+                    {
+                        result.Failed++;
+                        result.Errors.Add(new BulkUploadErrorDto { Row = rowNumber, Message = $"Department '{record.Department}' not found." });
+                        continue;
+                    }
+
+                    if (!requestRoleLookup.TryGetValue(record.RequestRoleName, out var role))
+                    {
+                        result.Failed++;
+                        result.Errors.Add(new BulkUploadErrorDto { Row = rowNumber, Message = $"RequestRole '{record.RequestRoleName}' not found." });
+                        continue;
+                    }
+
+                    validStaff.Add(new Staff
+                    {
+                        Username = record.Username,
+                        Firstname = record.Firstname,
+                        Surname = record.Surname,
+                        Email = record.Email,
+                        Department = dept.DepartmentName,
+                        DepartmentID = dept.DepartmentID,
+                        Password = defaultPassword,
+                        StatusID = record.StatusID,
+                        RoleID = record.RoleID,
+                        RequestRoleID = role.RequestRoleID,
+                        LastModifiedBy = DateTime.UtcNow
+                    });
+
+                    processedUsernames.Add(record.Username);
+                    processedEmails.Add(record.Email);
+                }
+
+                if (validStaff.Count > 0)
+                {
+                    await _staffRepository.BulkRegisterUsersAsync(validStaff);
+                }
+
+                result.Succeeded = validStaff.Count;
+                _logger.LogInformation("Bulk upload completed. Total: {Total}, Succeeded: {Succeeded}, Failed: {Failed}", result.TotalRows, result.Succeeded, result.Failed);
+
+                return StatusCode(StatusCodes.Status207MultiStatus, result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred during bulk upload.");
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
         }

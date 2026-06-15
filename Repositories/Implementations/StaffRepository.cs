@@ -108,5 +108,57 @@ namespace visitor_admin.Repositories.Implementations
                 user.UserID // used only in WHERE clause
             });
         }
+
+        public async Task<IEnumerable<string>> GetAllUsernamesAsync()
+        {
+            return await _db.QueryAsync<string>("SELECT Username FROM tblStaffList");
+        }
+
+        public async Task<IEnumerable<string>> GetAllEmailsAsync()
+        {
+            return await _db.QueryAsync<string>("SELECT Email FROM tblStaffList");
+        }
+
+        public async Task BulkRegisterUsersAsync(IEnumerable<Staff> users)
+        {
+            var needsClose = _db.State == ConnectionState.Closed;
+            if (needsClose)
+                _db.Open();
+
+            var transaction = _db.BeginTransaction();
+            try
+            {
+                foreach (var user in users)
+                {
+                    var sql = @"INSERT INTO tblStaffList (Username, Firstname, Surname, Email, Department, DepartmentID, Password, RoleID, RequestRoleID, StatusID)
+                                VALUES (@Username, @Firstname, @Surname, @Email, @Department, @DepartmentID, @Password, @RoleID, @RequestRoleID, @StatusID)";
+                    await _db.ExecuteAsync(sql, new
+                    {
+                        user.Username,
+                        user.Firstname,
+                        user.Surname,
+                        user.Email,
+                        user.Department,
+                        user.DepartmentID,
+                        user.Password,
+                        user.RoleID,
+                        user.RequestRoleID,
+                        user.StatusID
+                    }, transaction);
+                }
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
+            finally
+            {
+                transaction?.Dispose();
+                if (needsClose && _db.State == ConnectionState.Open)
+                    _db.Close();
+            }
+        }
     }
 }

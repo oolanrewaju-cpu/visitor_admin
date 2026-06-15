@@ -9,7 +9,10 @@
       "visitor_admin/1.0.0": {
         "dependencies": {
           "AutoMapper": "16.1.1",
+          "CsvHelper": "33.1.0",
           "Dapper": "2.1.79",
+          "Google.Apis.Auth.AspNetCore3": "1.75.0",
+          "Microsoft.AspNetCore.Authentication.Google": "10.0.9",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.8",
           "Microsoft.AspNetCore.OpenApi": "10.0.8",
           "Microsoft.Data.SqlClient": "7.0.1",
@@ -37,11 +40,74 @@
           }
         }
       },
+      "CsvHelper/33.1.0": {
+        "runtime": {
+          "lib/net9.0/CsvHelper.dll": {
+            "assemblyVersion": "33.0.0.0",
+            "fileVersion": "33.1.0.26"
+          }
+        }
+      },
       "Dapper/2.1.79": {
         "runtime": {
           "lib/net10.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.1.79.29349"
+          }
+        }
+      },
+      "Google.Apis/1.75.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.75.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.dll": {
+            "assemblyVersion": "1.75.0.0",
+            "fileVersion": "1.75.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.75.0": {
+        "dependencies": {
+          "Google.Apis": "1.75.0",
+          "Google.Apis.Core": "1.75.0",
+          "System.Management": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.75.0.0",
+            "fileVersion": "1.75.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth.AspNetCore3/1.75.0": {
+        "dependencies": {
+          "Google.Apis.Auth": "1.75.0",
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.0.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Google.Apis.Auth.AspNetCore3.dll": {
+            "assemblyVersion": "1.75.0.0",
+            "fileVersion": "1.75.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.75.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.75.0.0",
+            "fileVersion": "1.75.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/10.0.9": {
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.926.27113"
           }
         }
       },
@@ -56,9 +122,20 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.0.3": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.16.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {
+            "assemblyVersion": "3.0.3.0",
+            "fileVersion": "3.0.320.7303"
+          }
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/10.0.0": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/net10.0/Microsoft.AspNetCore.JsonPatch.dll": {
@@ -70,7 +147,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/10.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.JsonPatch": "10.0.0",
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.4",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
@@ -298,17 +375,17 @@
           }
         }
       },
-      "Newtonsoft.Json/13.0.3": {
+      "Newtonsoft.Json/13.0.4": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.3.27908"
+            "fileVersion": "13.0.4.30916"
           }
         }
       },
       "Newtonsoft.Json.Bson/1.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
@@ -463,6 +540,14 @@
           }
         }
       },
+      "System.CodeDom/7.0.0": {
+        "runtime": {
+          "lib/net7.0/System.CodeDom.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "System.Configuration.ConfigurationManager/9.0.13": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "9.0.13"
@@ -483,6 +568,25 @@
           "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll": {
             "assemblyVersion": "8.16.0.0",
             "fileVersion": "8.16.0.26043"
+          }
+        }
+      },
+      "System.Management/7.0.2": {
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/System.Management.dll": {
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net7.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
           }
         }
       },
@@ -509,6 +613,13 @@
       "path": "automapper/16.1.1",
       "hashPath": "automapper.16.1.1.nupkg.sha512"
     },
+    "CsvHelper/33.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kqfTOZGrn7NarNeXgjh86JcpTHUoeQDMB8t9NVa/ZtlSYiV1rxfRnQ49WaJsob4AiGrbK0XDzpyKkBwai4F8eg==",
+      "path": "csvhelper/33.1.0",
+      "hashPath": "csvhelper.33.1.0.nupkg.sha512"
+    },
     "Dapper/2.1.79": {
       "type": "package",
       "serviceable": true,
@@ -516,12 +627,54 @@
       "path": "dapper/2.1.79",
       "hashPath": "dapper.2.1.79.nupkg.sha512"
     },
+    "Google.Apis/1.75.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZqODi2IvyTBezeGztemXv6U/+VinyqxxPiyoW2CZbzIrUp+a35Rt5tzUjXHPXK9nA1YQi/w8ABpYQpBm31ditw==",
+      "path": "google.apis/1.75.0",
+      "hashPath": "google.apis.1.75.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.75.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hzuGwUBIQYdFkChXm62E5Suxe+q5PHt2uE5EunGBco2j01uQJGlUgzNujZvGHMlAIEHaytzhdn3v3v52ZPgv2Q==",
+      "path": "google.apis.auth/1.75.0",
+      "hashPath": "google.apis.auth.1.75.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth.AspNetCore3/1.75.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TyNClSa2hOzWZM89a8h4JANE0bFv6K0NnoOU+ODe8K9IL5zwrccJ0pngIuHNkA7QiC2jp2hbB9N+Hpxu4RRMhw==",
+      "path": "google.apis.auth.aspnetcore3/1.75.0",
+      "hashPath": "google.apis.auth.aspnetcore3.1.75.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.75.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7AuI44XP4LzMFiOjdk4GCtCxJTIWZcjrXLeGjLYYSpTHHbiPkvm76XNym7zPOnD90sIg+zdTulg+I6D5W5spTQ==",
+      "path": "google.apis.core/1.75.0",
+      "hashPath": "google.apis.core.1.75.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xqjTc8/ap0dwKmdaqSlV8RxjXb02uQ8rynDtTuHRU2gmOYaNm6O+uUjobp4Ararzq0ndKNXiWnQErxjWEGFGiA==",
+      "path": "microsoft.aspnetcore.authentication.google/10.0.9",
+      "hashPath": "microsoft.aspnetcore.authentication.google.10.0.9.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.8": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-oGnE+X/SN6jdqao9WOkOIfyZ5+a0AtluJWy1Mxndq+kcWG6sx5k6l6tucu8/wJ7o9fHfLgVCzm/c4v/KVgVk6w==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.8",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.10.0.8.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ovzy0Yd3cO7xeDuams4lTHW4z+3OHU0yyBERdi9qOLcBnbtz5rQqtIdPpog20jhZWMX2AcA9HB4mCUqPHyLz2w==",
+      "path": "microsoft.aspnetcore.authentication.openidconnect/3.0.3",
+      "hashPath": "microsoft.aspnetcore.authentication.openidconnect.3.0.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/10.0.0": {
       "type": "package",
@@ -642,12 +795,12 @@
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.3": {
+    "Newtonsoft.Json/13.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
-      "path": "newtonsoft.json/13.0.3",
-      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.2": {
       "type": "package",
@@ -747,6 +900,13 @@
       "path": "swashbuckle.aspnetcore.swaggerui/10.1.7",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.10.1.7.nupkg.sha512"
     },
+    "System.CodeDom/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
+      "path": "system.codedom/7.0.0",
+      "hashPath": "system.codedom.7.0.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/9.0.13": {
       "type": "package",
       "serviceable": true,
@@ -760,6 +920,13 @@
       "sha512": "sha512-rrs2u7DRMXQG2yh0oVyF/vLwosfRv20Ld2iEpYcKwQWXHjfV+gFXNQsQ9p008kR9Ou4pxBs68Q6/9zC8Gi1wjg==",
       "path": "system.identitymodel.tokens.jwt/8.16.0",
       "hashPath": "system.identitymodel.tokens.jwt.8.16.0.nupkg.sha512"
+    },
+    "System.Management/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "path": "system.management/7.0.2",
+      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Security.Cryptography.ProtectedData/9.0.13": {
       "type": "package",

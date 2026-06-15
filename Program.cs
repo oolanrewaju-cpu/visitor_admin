@@ -1,5 +1,9 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Serilog;
@@ -38,6 +42,11 @@ try {
     builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly));
     builder.Services.AddControllers();
 
+    builder.Services.Configure<FormOptions>(options =>
+    {
+        options.MultipartBodyLengthLimit = 5 * 1024 * 1024;
+    });
+
     builder.Services.AddAuthorization(options =>
     {
         options.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -71,10 +80,35 @@ try {
     var jwtIssuer = builder.Configuration["Authentication:Issuer"] ?? throw new InvalidOperationException("JWT issuer is not configured");
     var jwtAudience = builder.Configuration["Authentication:Audience"] ?? throw new InvalidOperationException("JWT audience is not configured");
 
-    builder.Services.AddAuthentication("Bearer")
-        .AddJwtBearer(options =>
+    builder.Services.AddAuthentication(opt =>
+    {
+        opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        opt.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddCookie().AddGoogle(options =>
+    {
+        var clientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId is not configured");
+        var clientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret is not configured");
+
+
+        if (clientId == null)
         {
-            options.TokenValidationParameters = new TokenValidationParameters
+            throw new ArgumentNullException(nameof(clientId), "Google ClientId is not configured");
+        }
+
+        if (clientSecret == null)
+        {
+            throw new ArgumentNullException(nameof(clientSecret), "Google ClientSecret is not configured");
+        }
+
+        options.ClientId = clientId;
+        options.ClientSecret = clientSecret;
+        options.CallbackPath = "/api/auth/login/google/callback";
+
+        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+        {            options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
                 ValidateAudience = true,
@@ -85,6 +119,12 @@ try {
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
             };
         });
+
+    //builder.Services.AddAuthentication().AddGoogleOpenIdConnect(googleOptions =>
+    //{
+    //    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId is not configured"); 
+    //    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret is not configured");
+    //});
 
     builder.Services.AddCors(options =>
     {

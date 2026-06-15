@@ -1,13 +1,12 @@
-﻿
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System.Data;
-
 
 namespace visitor_admin.Repositories
 {
-    public abstract class BaseRepository
+    public abstract class BaseRepository : IDisposable
     {
         private readonly string _connectionString;
+        private IDbConnection? _connection;
 
         public BaseRepository(IConfiguration configuration)
         {
@@ -16,7 +15,13 @@ namespace visitor_admin.Repositories
 
         protected IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            _connection = new SqlConnection(_connectionString);
+            return _connection;
+        }
+
+        public void Dispose()
+        {
+            _connection?.Dispose();
         }
     }
 }

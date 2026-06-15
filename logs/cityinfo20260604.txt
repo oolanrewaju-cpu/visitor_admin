@@ -1,0 +1,87 @@
+2026-06-04 13:58:45.135 +01:00 [INF] Starting up the service...
+2026-06-04 14:10:38.139 +01:00 [INF] Starting up the service...
+2026-06-04 14:11:28.983 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-04 14:11:29.292 +01:00 [INF] Login attempt for username: admin
+2026-06-04 14:11:29.384 +01:00 [INF] Successful login for username: admin
+2026-06-04 14:11:30.009 +01:00 [INF] Retrieving all request roles...
+2026-06-04 14:11:30.026 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:11:30.050 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-04 14:11:30.050 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-04 14:11:30.121 +01:00 [INF] Retrieved 3 request roles.
+2026-06-04 14:11:30.196 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-04 14:11:30.218 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:11:30.218 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:11:33.982 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-04 14:11:34.004 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:11:46.572 +01:00 [INF] Fetching current user with ID: 2
+2026-06-04 14:11:46.670 +01:00 [INF] Fetching current user with ID: 2
+2026-06-04 14:11:46.871 +01:00 [INF] Retrieving all request roles...
+2026-06-04 14:11:46.872 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-04 14:11:46.888 +01:00 [INF] Retrieved 3 request roles.
+2026-06-04 14:11:46.907 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:11:50.529 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:11:50.560 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-04 14:11:52.529 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:11:52.556 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-04 14:12:16.532 +01:00 [INF] Creating a new department with Name: Great googly moogly
+2026-06-04 14:12:17.202 +01:00 [ERR] An error occurred while creating a new department.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'LastModifiedBy'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 663
+   at visitor_admin.Repositories.Implementations.DepartmentRepository.CreateDepartment(Department department) in C:\Users\DELL\Documents\visitor_admin\Repositories\Implementations\DepartmentRepository.cs:line 49
+   at visitor_admin.Controllers.DepartmentsController.CreateDepartment(CreateDepartmentDto createDepartmentDto) in C:\Users\DELL\Documents\visitor_admin\Controllers\DepartmentsController.cs:line 74
+ClientConnectionId:6e6319ea-49fe-44eb-8ece-15451bc4b288
+Error Number:207,State:1,Class:16
+2026-06-04 14:12:32.510 +01:00 [INF] Creating a new department with Name: Great googly moogly
+2026-06-04 14:12:33.007 +01:00 [ERR] An error occurred while creating a new department.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'LastModifiedBy'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 663
+   at visitor_admin.Repositories.Implementations.DepartmentRepository.CreateDepartment(Department department) in C:\Users\DELL\Documents\visitor_admin\Repositories\Implementations\DepartmentRepository.cs:line 49
+   at visitor_admin.Controllers.DepartmentsController.CreateDepartment(CreateDepartmentDto createDepartmentDto) in C:\Users\DELL\Documents\visitor_admin\Controllers\DepartmentsController.cs:line 74
+ClientConnectionId:6e6319ea-49fe-44eb-8ece-15451bc4b288
+Error Number:207,State:1,Class:16
+2026-06-04 14:20:02.189 +01:00 [INF] Creating a new department with Name: Great googly moogly
+2026-06-04 14:20:04.639 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:20:04.774 +01:00 [INF] Retrieved 56 departments from the repository.
+2026-06-04 14:20:41.419 +01:00 [INF] Retrieving department with ID: 56
+2026-06-04 14:20:47.489 +01:00 [INF] Deleting department with ID: 56
+2026-06-04 14:20:47.511 +01:00 [INF] Successfully deleted department with ID: 56
+2026-06-04 14:20:47.691 +01:00 [INF] Retrieving department with ID: 56
+2026-06-04 14:20:47.698 +01:00 [WRN] Department with ID: 56 not found.
+2026-06-04 14:20:48.172 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:20:48.216 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-04 14:21:09.402 +01:00 [INF] Retrieving all request roles...
+2026-06-04 14:21:09.472 +01:00 [INF] Retrieved 3 request roles.
+2026-06-04 14:21:14.991 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-04 14:21:15.023 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:21:16.183 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-04 14:21:16.186 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-04 14:21:16.225 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-04 14:21:16.349 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 14:21:16.409 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-04 14:21:16.421 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-04 15:11:35.851 +01:00 [INF] Retrieving all request roles...
+2026-06-04 15:11:36.135 +01:00 [INF] Retrieved 3 request roles.

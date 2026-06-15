@@ -1,7 +1,11 @@
-using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using visitor_admin.Entities;
 using visitor_admin.Helpers;
 using visitor_admin.Models.Dtos;
@@ -22,6 +26,7 @@ namespace visitor_admin.Controllers
         private readonly IEmailService _emailService;
         private readonly IOtpService _otpService;
         private readonly IMapper _mapper;
+
 
         public AuthController(
             ILogger<AuthController> logger,
@@ -74,6 +79,53 @@ namespace visitor_admin.Controllers
             {
                 _logger.LogError(ex, "An error occurred during login.");
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("login/google")]
+        public IActionResult GoogleLogin([FromQuery] string returnUrl)
+        {
+            var properties = new AuthenticationProperties
+            {
+                RedirectUri = Url.Action("GoogleLoginCallback", new { returnUrl })
+            };
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("login/google/callback", Name = "GoogleLoginCallback")]
+        public async Task<IActionResult> GoogleLoginCallback([FromQuery] string returnUrl)
+        {
+            try
+            {
+                var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (!result.Succeeded)
+                    return BadRequest("Google authentication failed.");
+
+                var email = result.Principal.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(email))
+                    return BadRequest("Email not provided by Google.");
+
+                var user = await _userRepository.GetByEmailAsync(email);
+                if (user == null)
+                    return Unauthorized("No account found for this Google email.");
+
+                if (!user.IsActive)
+                    return Unauthorized("Account is deactivated.");
+
+                var token = _jwtService.GenerateToken(user);
+                var adminUserDto = _mapper.Map<AdminUserDto>(user);
+
+                if (!string.IsNullOrEmpty(returnUrl))
+                    return Redirect($"{returnUrl}?token={token}");
+
+                return Ok(new AuthResponseDto { Token = token, AdminUser = adminUserDto });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred during Google login callback.");
+                return StatusCode(500, "An error occurred while processing your request.");
             }
         }
 

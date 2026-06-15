@@ -297,3 +297,161 @@ Error Number:515,State:2,Class:16
 2026-06-02 14:04:04.173 +01:00 [INF] Retrieved 1 staff members from the repository.
 2026-06-02 14:04:05.453 +01:00 [INF] Retrieving all request roles...
 2026-06-02 14:04:05.833 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 14:23:53.060 +01:00 [INF] Starting up the service...
+2026-06-02 14:25:37.810 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 14:25:37.964 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 14:25:37.971 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 14:25:38.736 +01:00 [INF] Retrieving all request roles...
+2026-06-02 14:25:39.022 +01:00 [INF] Retrieving staff member with ID: 4
+2026-06-02 14:25:39.023 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 14:25:39.199 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 14:25:39.432 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 14:30:21.335 +01:00 [INF] Patching staff member with ID: 4
+2026-06-02 14:30:21.625 +01:00 [INF] Successfully patched staff member with ID: 4
+2026-06-02 14:30:21.663 +01:00 [INF] Retrieving staff member with ID: 4
+2026-06-02 14:30:22.635 +01:00 [INF] Retrieving all request roles...
+2026-06-02 14:30:22.694 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 14:31:03.264 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 14:31:03.363 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 14:31:14.463 +01:00 [INF] Retrieving all request roles...
+2026-06-02 14:31:14.508 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 15:15:06.856 +01:00 [INF] Starting up the service...
+2026-06-02 15:15:43.325 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:15:43.479 +01:00 [INF] Login attempt for username: admin
+2026-06-02 15:15:43.587 +01:00 [INF] Successful login for username: admin
+2026-06-02 15:15:44.547 +01:00 [INF] Retrieving all request roles...
+2026-06-02 15:15:44.637 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 15:15:44.653 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-02 15:15:44.653 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-02 15:15:44.925 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 15:15:45.304 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 15:15:45.362 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-02 15:15:45.362 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-02 15:15:51.016 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 15:15:51.136 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-02 15:15:58.330 +01:00 [INF] Deleting staff member with ID: 4
+2026-06-02 15:15:58.478 +01:00 [INF] Successfully deleted staff member with ID: 4
+2026-06-02 15:15:58.564 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 15:15:58.597 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:16:06.631 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:16:06.865 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:16:07.268 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 15:16:07.277 +01:00 [INF] Retrieving all request roles...
+2026-06-02 15:16:07.401 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:16:07.401 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 15:17:15.306 +01:00 [INF] Starting up the service...
+2026-06-02 15:19:09.001 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:19:09.296 +01:00 [INF] Starting bulk upload from file: staff.csv
+2026-06-02 15:19:10.002 +01:00 [ERR] An error occurred during bulk upload.
+CsvHelper.ReaderException: No members are mapped for type 'visitor_admin.Models.Dtos.CsvStaffImportDto'.
+IReader state:
+   ColumnCount: 9
+   CurrentIndex: -1
+   HeaderRecord:
+["userID","username","firstname","surname","email","department","roleID","requestRoleID","lastModifiedBy"]
+IParser state:
+   ByteCount: 0
+   CharCount: 193
+   Row: 2
+   RawRow: 2
+   Count: 9
+   RawRecord:
+4,tobi,Oluwatobi,Olanrewaju,tobiolan948@gmail.com,MASTER'S IN MANAGEMENT (MIM),2,2,2026-06-01T15:31:36.363
+
+   at CsvHelper.Expressions.ObjectRecordCreator.CreateCreateRecordDelegate(Type recordType)
+   at CsvHelper.Expressions.RecordCreator.GetCreateRecordDelegate[T](Type recordType)
+   at CsvHelper.Expressions.RecordManager.GetReadDelegate[T](Type recordType)
+   at CsvHelper.CsvReader.GetRecords[T]()+MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at visitor_admin.Controllers.StaffController.BulkUploadStaff(IFormFile file) in C:\Users\DELL\Documents\visitor_admin\Controllers\StaffController.cs:line 124
+2026-06-02 15:29:39.988 +01:00 [INF] Starting up the service...
+2026-06-02 15:30:41.904 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:30:42.225 +01:00 [INF] Login attempt for username: admin
+2026-06-02 15:30:42.724 +01:00 [INF] Successful login for username: admin
+2026-06-02 15:30:47.119 +01:00 [INF] Retrieving all request roles...
+2026-06-02 15:30:47.243 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 15:30:47.356 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-02 15:30:47.356 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 15:30:47.361 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-02 15:30:48.508 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 15:30:49.270 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:30:49.326 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:30:49.354 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:30:49.460 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 15:32:03.288 +01:00 [INF] Starting up the service...
+2026-06-02 15:32:40.934 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:32:41.484 +01:00 [INF] Starting bulk upload from file: staff.csv
+2026-06-02 15:32:42.101 +01:00 [INF] Bulk upload completed. Total: 1, Succeeded: 0, Failed: 1
+2026-06-02 15:33:04.704 +01:00 [INF] Retrieving all request roles...
+2026-06-02 15:33:04.732 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 15:33:04.739 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 15:33:04.813 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 15:34:37.685 +01:00 [INF] Starting up the service...
+2026-06-02 15:36:33.646 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:36:33.774 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:36:33.774 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:37:26.970 +01:00 [INF] Starting up the service...
+2026-06-02 15:37:51.970 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:37:52.263 +01:00 [INF] Starting bulk upload from file: staff_upload_template.csv
+2026-06-02 15:37:53.034 +01:00 [INF] Bulk upload completed. Total: 1, Succeeded: 0, Failed: 1
+2026-06-02 15:42:22.367 +01:00 [INF] Starting up the service...
+2026-06-02 15:42:55.994 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 15:42:56.230 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:42:57.489 +01:00 [INF] Fetching current user with ID: 2
+2026-06-02 15:44:58.780 +01:00 [INF] Starting up the service...
+2026-06-02 15:56:45.180 +01:00 [INF] Starting up the service...
+2026-06-02 15:58:40.782 +01:00 [INF] Starting up the service...
+2026-06-02 15:59:05.844 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - visitor_admin.Controllers.StaffController.BulkUploadStaff (visitor_admin). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Error reading parameter(s) for action visitor_admin.Controllers.StaffController.BulkUploadStaff (visitor_admin) as [FromForm] attribute used with IFormFile. Please refer to https://github.com/domaindrivendev/Swashbuckle.AspNetCore/tree/master/docs/configure-and-customize-swaggergen.md#handle-forms-and-file-uploads for more information
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateParametersAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, OpenApiDocument document, Func`4 parameterGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateParametersAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, OpenApiDocument document)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(OpenApiDocument document, ApiDescription apiDescription, SchemaRepository schemaRepository, Func`4 parametersGenerator, Func`4 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(OpenApiDocument document, ApiDescription apiDescription, SchemaRepository schemaRepository, Func`4 parametersGenerator, Func`4 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(OpenApiDocument document, ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-06-02 16:02:23.452 +01:00 [INF] Starting up the service...
+2026-06-02 16:41:46.372 +01:00 [INF] Starting up the service...
+2026-06-02 16:42:24.751 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-02 16:42:24.905 +01:00 [INF] Login attempt for username: admin
+2026-06-02 16:42:25.109 +01:00 [INF] Successful login for username: admin
+2026-06-02 16:42:27.278 +01:00 [INF] Retrieving all request roles...
+2026-06-02 16:42:27.609 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 16:42:27.845 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 5
+2026-06-02 16:42:27.845 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 1
+2026-06-02 16:42:28.237 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 16:42:28.528 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 16:42:28.937 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 16:42:29.656 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 16:42:45.274 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 16:42:46.819 +01:00 [INF] Retrieved 0 staff members from the repository.
+2026-06-02 16:42:55.104 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 16:42:55.283 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 16:44:14.256 +01:00 [INF] Creating a new staff member with Username: tobi
+2026-06-02 16:44:14.896 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 16:44:14.897 +01:00 [INF] Retrieving all request roles...
+2026-06-02 16:44:14.985 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 16:44:15.019 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-02 16:44:54.915 +01:00 [INF] Retrieving all request roles...
+2026-06-02 16:44:54.948 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 16:44:54.982 +01:00 [INF] Retrieving staff member with ID: 6
+2026-06-02 16:44:57.532 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 16:44:57.647 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 16:45:22.474 +01:00 [INF] Patching staff member with ID: 6
+2026-06-02 16:45:22.796 +01:00 [INF] Successfully patched staff member with ID: 6
+2026-06-02 16:45:23.342 +01:00 [INF] Retrieving staff member with ID: 6
+2026-06-02 16:47:01.984 +01:00 [INF] Retrieving all request roles...
+2026-06-02 16:47:01.985 +01:00 [INF] Retrieving departments with Name: null, SearchQuery: null
+2026-06-02 16:47:02.020 +01:00 [INF] Retrieved 3 request roles.
+2026-06-02 16:47:02.054 +01:00 [INF] Retrieved 55 departments from the repository.
+2026-06-02 16:47:08.005 +01:00 [INF] Retrieving staff members with Name: null, SearchQuery: null, PageNumber: 1, PageSize: 10
+2026-06-02 16:47:08.053 +01:00 [INF] Retrieved 1 staff members from the repository.
+2026-06-02 16:49:19.437 +01:00 [INF] Starting up the service...

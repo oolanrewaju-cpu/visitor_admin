@@ -106,6 +106,39 @@
   },
   {
     "ContainingType": "visitor_admin.Controllers.AuthController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/Auth/login/google",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "returnUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "visitor_admin.Controllers.AuthController",
+    "Method": "GoogleLoginCallback",
+    "RelativePath": "api/Auth/login/google/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "returnUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GoogleLoginCallback"
+  },
+  {
+    "ContainingType": "visitor_admin.Controllers.AuthController",
     "Method": "GetCurrentUser",
     "RelativePath": "api/Auth/me",
     "HttpMethod": "GET",
@@ -461,6 +494,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "visitor_admin.Controllers.StaffController",
+    "Method": "BulkUploadStaff",
+    "RelativePath": "api/Staff/bulk-upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "visitor_admin.Models.Dtos.BulkUploadResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "visitor_admin.Controllers.WeatherForecastController",

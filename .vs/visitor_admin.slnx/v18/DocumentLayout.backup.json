@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\Documents\\visitor_admin\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\implementations\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\implementations\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,22 +55,6 @@
       "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:models\\dtos\\patchstaffdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\implementations\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\implementations\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -53,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\models\\dtos\\staffdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:models\\dtos\\staffdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|solutionrelative:repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{006AAFE0-838A-E4BB-4A99-ACAFBC163869}|visitor_admin.csproj|c:\\users\\dell\\documents\\visitor_admin\\visitor_admin.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -70,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,7 +90,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T11:08:07.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-11T14:16:25.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "PatchStaffDto.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Models\\Dtos\\PatchStaffDto.cs",
               "RelativeDocumentMoniker": "Models\\Dtos\\PatchStaffDto.cs",
@@ -90,47 +124,51 @@
               "RelativeToolTip": "Models\\Dtos\\PatchStaffDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T10:28:41.518Z"
+              "WhenOpened": "2026-06-02T10:28:41.518Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "IDepartmentRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Interfaces\\IDepartmentRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IDepartmentRepository.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Interfaces\\IDepartmentRepository.cs",
               "RelativeToolTip": "Repositories\\Interfaces\\IDepartmentRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T09:22:43.825Z"
+              "WhenOpened": "2026-06-02T09:22:43.825Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "DepartmentRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Implementations\\DepartmentRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\DepartmentRepository.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Implementations\\DepartmentRepository.cs",
               "RelativeToolTip": "Repositories\\Implementations\\DepartmentRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T09:21:51.301Z"
+              "WhenOpened": "2026-06-02T09:21:51.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "DepartmentsController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\DepartmentsController.cs",
               "RelativeDocumentMoniker": "Controllers\\DepartmentsController.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\DepartmentsController.cs",
               "RelativeToolTip": "Controllers\\DepartmentsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB4AAABUAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T09:20:29.5Z"
+              "WhenOpened": "2026-06-02T09:20:29.5Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "StaffDto.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Models\\Dtos\\StaffDto.cs",
               "RelativeDocumentMoniker": "Models\\Dtos\\StaffDto.cs",
@@ -138,11 +176,12 @@
               "RelativeToolTip": "Models\\Dtos\\StaffDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T13:43:23.494Z"
+              "WhenOpened": "2026-06-01T13:43:23.494Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Staff.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Entities\\Staff.cs",
               "RelativeDocumentMoniker": "Entities\\Staff.cs",
@@ -150,11 +189,12 @@
               "RelativeToolTip": "Entities\\Staff.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T13:36:23.749Z"
+              "WhenOpened": "2026-06-01T13:36:23.749Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IUserRepository.cs",
@@ -162,11 +202,12 @@
               "RelativeToolTip": "Repositories\\Interfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T13:34:52.821Z"
+              "WhenOpened": "2026-06-01T13:34:52.821Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Implementations\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\UserRepository.cs",
@@ -179,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -187,24 +228,25 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAQAAAAAAAAAAAAgwBwAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-01T12:49:46.933Z"
+              "WhenOpened": "2026-06-01T12:49:46.933Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "StaffRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Implementations\\StaffRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\StaffRepository.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Implementations\\StaffRepository.cs",
               "RelativeToolTip": "Repositories\\Implementations\\StaffRepository.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAIwGIAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAIwGMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-29T16:25:14.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "IStaffRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Repositories\\Interfaces\\IStaffRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IStaffRepository.cs",
@@ -217,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "StaffProfile.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Profiles\\StaffProfile.cs",
               "RelativeDocumentMoniker": "Profiles\\StaffProfile.cs",
@@ -230,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "visitor_admin.csproj",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\visitor_admin.csproj",
               "RelativeDocumentMoniker": "visitor_admin.csproj",
@@ -238,32 +280,34 @@
               "RelativeToolTip": "visitor_admin.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-29T16:13:17.766Z"
+              "WhenOpened": "2026-05-29T16:13:17.766Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "StaffController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\StaffController.cs",
               "RelativeDocumentMoniker": "Controllers\\StaffController.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Controllers\\StaffController.cs",
               "RelativeToolTip": "Controllers\\StaffController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAiwHEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAqwCgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-29T16:06:32.176Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Documents\\visitor_admin\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\DELL\\Documents\\visitor_admin\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAAAHwAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T11:20:19.685Z"
+              "WhenOpened": "2026-05-29T11:20:19.685Z",
+              "EditorCaption": ""
             }
           ]
         }
