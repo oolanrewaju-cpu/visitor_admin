@@ -1,3 +1,4 @@
+// imported packages as well as classes from other classes in the project
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +17,7 @@ using visitor_admin.Repositories.Implementations;
 using visitor_admin.Repositories.Interfaces;
 using visitor_admin.Services;
 
+// logger configuration
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
@@ -25,11 +27,15 @@ Log.Logger = new LoggerConfiguration()
 
 try {
     Log.Information("Starting up the service...");
+    // This sets up and configures everything the application needs to run.
     var builder = WebApplication.CreateBuilder(args);
-
+        
+    // replaces ASP.NET Core's default logging system with Serilog as the logging provider for the entire application
     builder.Host.UseSerilog();
+    
     // Add services to the container.
-
+    // These are custom services injected into the app.
+    // These tell the app what classes to use when services are requested.
     builder.Services.AddScoped<IStaffRepository, StaffRepository>();
     builder.Services.AddScoped<IRequestRoleRepository, RequestRoleRepository>();
     builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -39,22 +45,28 @@ try {
     builder.Services.AddScoped<JwtService>();
     builder.Services.AddScoped<IEmailService, EmailService>();
     builder.Services.AddScoped<IOtpService, OtpService>();
-    builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly));
+    
+    // registers automapper and tells it to scan the project for all mapping profiles automatically
+    builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly)); 
+    
+    // registers MVC controller system so that app can handle HTTP requests through controllers
     builder.Services.AddControllers();
-
+    
+    // This sets the maximum file upload size in the app to 5mb
     builder.Services.Configure<FormOptions>(options =>
     {
         options.MultipartBodyLengthLimit = 5 * 1024 * 1024;
     });
-
+    // Ensures all endpoints require authentication by default unless explicitly marked with [AllowAnonymous]
     builder.Services.AddAuthorization(options =>
     {
         options.FallbackPolicy = new AuthorizationPolicyBuilder()
             .RequireAuthenticatedUser()
             .Build();
     });
-    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+    // Enables swagger to discover and document the API endpoints
     builder.Services.AddEndpointsApiExplorer();
+    // Configures Swagger to support JWT Authentication, adding a bearer token input field to the swagger UI
     builder.Services.AddSwaggerGen(options =>
     {
         // Define the Bearer auth scheme
@@ -74,8 +86,10 @@ try {
             [new OpenApiSecuritySchemeReference("bearer", document)] = []
         });
     });
+    //Registers Microsoft's built-in OpenAPI document generation service, similar to Swagger but native to ASP.NET Core.
     builder.Services.AddOpenApi();
 
+    //  Extracting secrets from the config file. Will be environment variables in production.
     var jwtSecretKey = builder.Configuration["Authentication:SecretForKey"] ?? throw new InvalidOperationException("JWT secret key is not configured");
     var jwtIssuer = builder.Configuration["Authentication:Issuer"] ?? throw new InvalidOperationException("JWT issuer is not configured");
     var jwtAudience = builder.Configuration["Authentication:Audience"] ?? throw new InvalidOperationException("JWT audience is not configured");
@@ -84,14 +98,14 @@ try {
     {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-.AddCookie()
-.AddGoogle(options =>
-{
-    options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    options.CallbackPath = "/signin-google"; // let middleware handle this, not your controller
-    options.SaveTokens = true;
-})
+    .AddCookie()
+    .AddGoogle(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+        options.CallbackPath = "/signin-google"; // let middleware handle this, not your controller
+        options.SaveTokens = true;
+    })
     .AddJwtBearer(options =>
         {            options.TokenValidationParameters = new TokenValidationParameters
             {
