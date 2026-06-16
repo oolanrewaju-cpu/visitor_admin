@@ -130,7 +130,6 @@ C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\refint\visitor_admin.dll
 C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\visitor_admin.pdb
 C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\visitor_admin.genruntimeconfig.cache
 C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\ref\visitor_admin.dll
-C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Google.Apis.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Google.Apis.Auth.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Google.Apis.Auth.AspNetCore3.dll
@@ -140,3 +139,4 @@ C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\System.CodeDom.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\System.Management.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\DELL\Documents\visitor_admin\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

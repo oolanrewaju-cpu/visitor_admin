@@ -88,7 +88,7 @@ namespace visitor_admin.Controllers
         {
             var properties = new AuthenticationProperties
             {
-                RedirectUri = Url.Action("GoogleLoginCallback", new { returnUrl })
+                RedirectUri = Url.Action("GoogleLoginCallback", "Auth", new { returnUrl })
             };
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
@@ -101,21 +101,34 @@ namespace visitor_admin.Controllers
             {
                 var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
                 if (!result.Succeeded)
+                {
+                    _logger.LogWarning("Google authentication failed.");
                     return BadRequest("Google authentication failed.");
+                }
 
-                var email = result.Principal.FindFirstValue(ClaimTypes.Email);
+                var email = result.Principal.FindFirstValue(ClaimTypes.Email); // Get the email claim from the authenticated user
                 if (string.IsNullOrEmpty(email))
                     return BadRequest("Email not provided by Google.");
 
                 var user = await _userRepository.GetByEmailAsync(email);
+
                 if (user == null)
-                    return Unauthorized("No account found for this Google email.");
+                {
+                    if (!string.IsNullOrEmpty(returnUrl))
+                        return Redirect($"{returnUrl}?error={Uri.EscapeDataString("User not found")}");
+
+                    return Unauthorized("User not found");
+                }
 
                 if (!user.IsActive)
+                {
                     return Unauthorized("Account is deactivated.");
+                }
 
                 var token = _jwtService.GenerateToken(user);
                 var adminUserDto = _mapper.Map<AdminUserDto>(user);
+
+                _logger.LogInformation("Successful Google login for email: {Email}", email);
 
                 if (!string.IsNullOrEmpty(returnUrl))
                     return Redirect($"{returnUrl}?token={token}");
@@ -318,7 +331,7 @@ namespace visitor_admin.Controllers
             }
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("me")]
         public async Task<ActionResult<AdminUserDto>> GetCurrentUser()
         {

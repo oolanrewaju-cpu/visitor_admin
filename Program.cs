@@ -80,33 +80,18 @@ try {
     var jwtIssuer = builder.Configuration["Authentication:Issuer"] ?? throw new InvalidOperationException("JWT issuer is not configured");
     var jwtAudience = builder.Configuration["Authentication:Audience"] ?? throw new InvalidOperationException("JWT audience is not configured");
 
-    builder.Services.AddAuthentication(opt =>
+    builder.Services.AddAuthentication(options =>
     {
-        opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        opt.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
-    }).AddCookie().AddGoogle(options =>
-    {
-        var clientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId is not configured");
-        var clientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret is not configured");
-
-
-        if (clientId == null)
-        {
-            throw new ArgumentNullException(nameof(clientId), "Google ClientId is not configured");
-        }
-
-        if (clientSecret == null)
-        {
-            throw new ArgumentNullException(nameof(clientSecret), "Google ClientSecret is not configured");
-        }
-
-        options.ClientId = clientId;
-        options.ClientSecret = clientSecret;
-        options.CallbackPath = "/api/auth/login/google/callback";
-
-        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
+.AddCookie()
+.AddGoogle(options =>
+{
+    options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    options.CallbackPath = "/signin-google"; // let middleware handle this, not your controller
+    options.SaveTokens = true;
+})
     .AddJwtBearer(options =>
         {            options.TokenValidationParameters = new TokenValidationParameters
             {

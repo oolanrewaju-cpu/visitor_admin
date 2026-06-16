@@ -34,11 +34,12 @@ namespace visitor_admin.Repositories.Implementations
                 new { UserId = id });
         }
 
-        public async Task CreateAsync(User user)
+        public async Task<User> CreateAsync(User user)
         {
             var sql = @"INSERT INTO tblUsers (Username, Email, PasswordHash, FirstName, LastName, Role, IsActive, IsEmailVerified, CreatedAt)
                         VALUES (@Username, @Email, @PasswordHash, @FirstName, @LastName, @Role, @IsActive, @IsEmailVerified, @CreatedAt)";
-            await _db.ExecuteAsync(sql, user);
+            
+            return await _db.QuerySingleAsync<User>(sql, user);
         }
 
         public async Task SaveChangesAsync(User user)

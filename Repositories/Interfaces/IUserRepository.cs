@@ -7,7 +7,7 @@ namespace visitor_admin.Repositories.Interfaces
         Task<User?> GetByUsernameAsync(string username);
         Task<User?> GetByEmailAsync(string email);
         Task<User?> GetByIdAsync(int id);
-        Task CreateAsync(User user);
+        Task<User> CreateAsync(User user);
         Task SaveChangesAsync(User user);
     }
 }
