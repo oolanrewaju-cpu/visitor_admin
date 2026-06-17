@@ -93,7 +93,9 @@ try {
     var jwtSecretKey = builder.Configuration["Authentication:SecretForKey"] ?? throw new InvalidOperationException("JWT secret key is not configured");
     var jwtIssuer = builder.Configuration["Authentication:Issuer"] ?? throw new InvalidOperationException("JWT issuer is not configured");
     var jwtAudience = builder.Configuration["Authentication:Audience"] ?? throw new InvalidOperationException("JWT audience is not configured");
-
+    
+    /*Sets up a hybrid auth pipeline that supports three schemes: cookies (default), 
+    Google OAuth (for social login), and JWT Bearer (for API token validation).*/
     builder.Services.AddAuthentication(options =>
     {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -124,7 +126,8 @@ try {
     //    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId is not configured"); 
     //    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret is not configured");
     //});
-
+    
+    //Configures CORS to allow requests from localhost:3000 with any headers and HTTP methods.
     builder.Services.AddCors(options =>
     {
         options.AddDefaultPolicy(policy =>
@@ -134,11 +137,14 @@ try {
                   .AllowAnyMethod();
         });
     });
-
+    
+    /* Finalizes dependency injection container, 
+    so one can only configure middleware and can't register services after this line. */
     var app = builder.Build();
     
-    app.UseCors();
+    app.UseCors(); // This enables the request pipeline to implement the CORS policy configured earlier.
 
+    // seeds default admin user into the database if one doesn't already exist
     using (var scope = app.Services.CreateScope())
     {
         var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
@@ -161,7 +167,8 @@ try {
             Log.Information("Default admin user seeded: admin / Admin@123");
         }
     }
-
+    
+    
     app.UseSerilogRequestLogging(options =>
     {
         // Customize the message template
@@ -188,17 +195,17 @@ try {
         });
     }
 
-    app.UseHttpsRedirection();
+    app.UseHttpsRedirection(); //redirects any HTTP request to HTTPS
 
 
 
-    app.UseAuthentication();
+    app.UseAuthentication(); // checks incoming requests for credentials and populates HttpContext.User
 
-    app.UseAuthorization();
+    app.UseAuthorization(); //  checks whether the authenticated user actually has permission to access the requested endpoint
 
-    app.MapControllers();
+    app.MapControllers(); // registers your controller routes with the pipeline
 
-    app.Run();
+    app.Run(); // starts the web server until the app shutsdown
 }
 catch(Exception ex)
 {

@@ -14,6 +14,7 @@ using visitor_admin.Services;
 
 namespace visitor_admin.Controllers
 {
+    // Marks the class as an API controller and sets its base route to api/<ControllerName>.
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
