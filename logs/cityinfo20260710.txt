@@ -1,0 +1,11 @@
+2026-07-10 15:47:12.444 +01:00 [INF] Starting up the service...
+2026-07-10 15:48:17.984 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-10 15:48:18.491 +01:00 [INF] Login attempt for username: admin
+2026-07-10 15:48:19.194 +01:00 [INF] Successful login for username: admin
+2026-07-10 15:48:51.211 +01:00 [INF] Login attempt for username: admin
+2026-07-10 15:48:52.284 +01:00 [INF] Successful login for username: admin
+2026-07-10 15:49:16.068 +01:00 [INF] Login attempt for username: admin
+2026-07-10 15:49:16.105 +01:00 [INF] Successful login for username: admin
+2026-07-10 15:50:08.937 +01:00 [INF] Successful Google login for email: oolanrewaju@lbs.edu.ng
+2026-07-10 15:51:36.561 +01:00 [INF] Login attempt for username: admin
+2026-07-10 15:51:37.064 +01:00 [INF] Successful login for username: admin
