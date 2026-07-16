@@ -169,7 +169,7 @@ namespace visitor_admin.Controllers
                 };
 
                 await _emailVerificationRepository.CreateAsync(verification);
-                await _emailService.SendPasswordResetEmailAsync(request.Email, token);
+                await _emailService.SendPasswordResetEmailAsync(request.Email, token, user.Username);
 
                 _logger.LogInformation("Password reset token generated for email: {Email}", request.Email);
                 return Ok("If the email exists, a reset link has been sent.");

@@ -1,0 +1,38 @@
+2026-07-16 13:50:12.746 +01:00 [INF] Starting up the service...
+2026-07-16 14:10:09.393 +01:00 [INF] Starting up the service...
+2026-07-16 14:11:59.190 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-16 14:11:59.319 +01:00 [INF] Password reset requested for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:11:59.662 +01:00 [ERR] Failed to send email to oolanrewaju@lbs.edu.ng
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at visitor_admin.Services.EmailService.SendEmailAsync(String toEmail, String subject, String body) in C:\Users\DELL\Documents\visitor_admin\Services\EmailService.cs:line 31
+2026-07-16 14:11:59.757 +01:00 [INF] Password reset token generated for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:14:16.920 +01:00 [INF] Starting up the service...
+2026-07-16 14:15:27.377 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-16 14:15:27.486 +01:00 [INF] Password reset requested for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:15:27.994 +01:00 [INF] Connecting to SMTP server :587
+2026-07-16 14:15:28.011 +01:00 [ERR] Failed to send email to oolanrewaju@lbs.edu.ng
+System.ArgumentException: The host name cannot be empty. (Parameter 'host')
+   at MailKit.MailService.ConnectAsync(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at visitor_admin.Services.EmailService.SendEmailAsync(String toEmail, String subject, String body) in C:\Users\DELL\Documents\visitor_admin\Services\EmailService.cs:line 44
+2026-07-16 14:15:28.058 +01:00 [INF] Password reset token generated for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:17:39.741 +01:00 [INF] Starting up the service...
+2026-07-16 14:20:43.415 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-16 14:20:43.732 +01:00 [INF] Password reset requested for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:20:44.414 +01:00 [INF] Connecting to SMTP server smtp.gmail.com:587
+2026-07-16 14:20:46.947 +01:00 [ERR] Failed to send email to oolanrewaju@lbs.edu.ng
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-49541e83bcbsm54588805e9.4 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-49541e83bcbsm54588805e9.4 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at visitor_admin.Services.EmailService.SendEmailAsync(String toEmail, String subject, String body) in C:\Users\DELL\Documents\visitor_admin\Services\EmailService.cs:line 47
+2026-07-16 14:20:47.003 +01:00 [INF] Password reset token generated for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:37:47.933 +01:00 [INF] Starting up the service...
+2026-07-16 14:38:18.969 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-16 14:38:19.247 +01:00 [INF] Password reset requested for email: oolanrewaju@lbs.edu.ng
+2026-07-16 14:38:19.791 +01:00 [INF] Connecting to SMTP server smtp.gmail.com:587
+2026-07-16 14:38:22.735 +01:00 [INF] Email sent successfully to oolanrewaju@lbs.edu.ng
+2026-07-16 14:38:22.738 +01:00 [INF] Password reset token generated for email: oolanrewaju@lbs.edu.ng

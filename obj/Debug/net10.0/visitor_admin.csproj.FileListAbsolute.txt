@@ -139,3 +139,6 @@ C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\System.CodeDom.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\System.Management.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\MailKit.dll
+C:\Users\DELL\Documents\visitor_admin\bin\Debug\net10.0\MimeKit.dll
